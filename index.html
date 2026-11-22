@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mitchel – IT Support & Digital Builder</title>
+<meta name="description" content="Portfolio of Mitchel: IT support, web design, graphic design and AI automation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E9EFF3;--surface:#fff;--ink:#11263A;--muted:#52667A;--accent:#2F5BFF;--on-accent:#fff;--ok:#17A06A;--line:#C9D5DE;--r:14px;
+--head:"Bricolage Grotesque","Trebuchet MS",sans-serif;--body:"Figtree","Segoe UI",system-ui,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0E1A26;--surface:#162636;--ink:#E6EEF5;--muted:#9FB3C5;--accent:#7C9BFF;--on-accent:#0E1A26;--ok:#3DDC97;--line:#26394B;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0E1A26;--surface:#162636;--ink:#E6EEF5;--muted:#9FB3C5;--accent:#7C9BFF;--on-accent:#0E1A26;--ok:#3DDC97;--line:#26394B;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,7vw,4.4rem);font-weight:800}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:500}
+p{margin:0 0 1em;max-width:62ch}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1040px;margin:0 auto;padding:.7rem 1.25rem;display:flex;align-items:center;gap:1rem;justify-content:space-between}
+.logo{font:800 1.3rem var(--head);text-decoration:none;color:var(--ink)}
+nav{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none}
+nav a{padding:.45rem .8rem;border-radius:99px;text-decoration:none;color:var(--muted);font-weight:500;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+nav a[aria-current=page]{background:var(--ink);color:var(--bg)}
+#theme{background:none;border:1px solid var(--line);border-radius:99px;width:2.4rem;height:2.4rem;cursor:pointer;color:var(--ink);font-size:1rem;flex:none}
+main{max-width:1040px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+.view{display:none}.view.on{display:block}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem}
+.btn{font:600 1rem var(--body);background:var(--accent);color:var(--on-accent);border:0;border-radius:99px;padding:.7rem 1.3rem;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--ink)}
+.chip{font:500 .95rem var(--body);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:.4rem .9rem;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.25rem}
+.status{display:inline-flex;gap:.5rem;align-items:center;font-weight:600;font-size:.95rem;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:.3rem .9rem;margin-bottom:1.25rem}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px transparent;opacity:.5}}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}*{transition:none!important}}
+.hero{display:grid;gap:2rem;grid-template-columns:1fr;align-items:start}
+@media(min-width:860px){.hero{grid-template-columns:1.1fr 1fr}}
+.lead{font-size:1.2rem;color:var(--muted)}
+.ticket{background:var(--surface);border:2px solid var(--ink);border-radius:var(--r);overflow:hidden}
+.ticket-h{background:var(--ink);color:var(--bg);padding:.7rem 1.1rem;display:flex;justify-content:space-between;font-weight:600}
+.ticket-b{padding:1.1rem}
+#tk-out{min-height:11rem;margin-top:1rem;padding-top:1rem;border-top:2px dashed var(--line)}
+#tk-out ol{margin:.5rem 0 0;padding-left:1.2rem}
+.tag{display:inline-block;font-size:.85rem;font-weight:600;background:var(--bg);border-radius:6px;padding:.1rem .5rem;color:var(--muted)}
+.skill{cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.skill:hover{border-color:var(--accent)}
+.skill .more{display:none;margin:.6rem 0 0;color:var(--muted);font-size:.98rem}
+.skill[aria-expanded=true] .more{display:block}
+.skill[aria-expanded=true]{border-color:var(--accent);border-width:2px}
+.lvl{display:flex;gap:4px;margin-top:.6rem}
+.lvl i{width:22px;height:6px;border-radius:3px;background:var(--line)}
+.lvl i.f{background:var(--accent)}
+iframe{width:100%;height:440px;border:1px solid var(--line);border-radius:10px;margin-top:1rem;background:#fff}
+label{display:block;font-weight:600;margin:.9rem 0 .3rem}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem}
+footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:1.5rem 1.25rem;font-size:.95rem}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="logo" href="#home">Mitchel</a>
+<nav aria-label="Main">
+<a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#games">Games</a><a href="#contact">Contact</a>
+</nav>
+<button id="theme" aria-label="Switch light or dark theme">◐</button>
+</div></header>
+
+<main>
+<!-- HOME -->
+<section class="view" id="v-home" aria-labelledby="h-home">
+<div class="hero">
+<div>
+<div class="status"><span class="dot"></span>Open for work</div>
+<h1 id="h-home">I fix what’s broken and automate what’s boring.</h1>
+<p class="lead">Hi, I’m Mitchel. IT support is my main job. I also design websites and graphics, and build AI automations that save people time.</p>
+<p><a class="btn" href="#projects">See my work</a> <a class="btn ghost" href="#contact">Get in touch</a></p>
+</div>
+<div class="ticket" aria-live="polite">
+<div class="ticket-h"><span>Try my help desk</span><span id="tk-id">Ticket #0001</span></div>
+<div class="ticket-b">
+<p style="margin-bottom:.6rem">Pick a problem. See how I’d start.</p>
+<div class="chips" id="tk-btns" style="margin:0"></div>
+<div id="tk-out"><p style="color:var(--muted)">No ticket yet. Choose a problem above.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="view" id="v-about" aria-labelledby="h-about">
+<h2 id="h-about">About me</h2>
+<p class="lead">I help people get back to work when technology gets in the way.</p>
+<p>I’m an IT support specialist who likes finding the real cause of a problem, then explaining the fix in plain language. Outside the help desk, I design websites and graphics, and I build small AI automations that remove repetitive tasks.</p>
+<p><em>Replace this paragraph with your own story: where you started, what you enjoy, and what you want to do next.</em></p>
+<div class="grid" style="margin-top:1.5rem">
+<div class="card"><h3>Main area</h3><p style="margin:0">IT Support</p></div>
+<div class="card"><h3>Other areas</h3><p style="margin:0">Web design, Graphic design, AI automation</p></div>
+<div class="card"><h3>Currently learning</h3><p style="margin:0">Cybersecurity</p></div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section class="view" id="v-skills" aria-labelledby="h-skills">
+<h2 id="h-skills">Skills</h2>
+<p>Tap a skill to read more. Filter by area.</p>
+<div class="chips" id="sk-f"></div>
+<div class="grid" id="sk-g"></div>
+</section>
+
+<!-- PROJECTS -->
+<section class="view" id="v-projects" aria-labelledby="h-projects">
+<h2 id="h-projects">Projects</h2>
+<p>Three projects so far, with more on the way.</p>
+<div class="grid" id="pr-g"></div>
+</section>
+
+<!-- GAMES -->
+<section class="view" id="v-games" aria-labelledby="h-games">
+<h2 id="h-games">Games</h2>
+<p>Three small games I built. Play them here or open each in its own tab.</p>
+<div class="grid" id="gm-g" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="view" id="v-contact" aria-labelledby="h-contact">
+<h2 id="h-contact">Contact</h2>
+<p>Need support, a website, a logo or an automation? Tell me what you need and I’ll reply by email.</p>
+<form class="card" id="cf" style="max-width:560px">
+<label for="c-n">Your name</label><input id="c-n" name="name" autocomplete="name" required>
+<label for="c-e">Your email</label><input id="c-e" name="email" type="email" autocomplete="email" required>
+<label for="c-t">What do you need?</label><input id="c-t" name="topic" placeholder="IT support, website, logo, automation…">
+<label for="c-m">Message</label><textarea id="c-m" name="message" rows="5" required></textarea>
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+<p style="margin:1rem 0 0"><button class="btn" id="c-s" type="submit">Send message</button></p>
+<p id="c-st" role="status" style="margin:.8rem 0 0;font-weight:600"></p>
+<p style="margin:.5rem 0 0;color:var(--muted);font-size:.95rem">Or email me directly at <a id="c-mail" href="#"></a>.</p>
+</form>
+</section>
+</main>
+<footer>© <span id="yr"></span> Mitchel · Built with Mishy Techie</footer>
+
+<script>
+const EMAIL="mishytechie@gmail.com";
+const $=s=>document.querySelector(s);
+
+/* routing */
+const pages=["home","about","skills","projects","games","contact"];
+function route(){
+  const p=pages.includes(location.hash.slice(1))?location.hash.slice(1):"home";
+  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+p));
+  document.querySelectorAll("nav a").forEach(a=>{a.hash==="#"+p?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current")});
+  window.scrollTo(0,0);
+}
+addEventListener("hashchange",route);
+
+/* theme */
+$("#theme").onclick=()=>{
+  const d=document.documentElement,dark=getComputedStyle(d).colorScheme==="dark";
+  d.dataset.theme=dark?"light":"dark";
+  try{localStorage.setItem("theme",d.dataset.theme)}catch(e){}
+};
+try{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}
+
+/* footer year updates itself */
+$("#yr").textContent=new Date().getFullYear();
+
+/* help desk ticket */
+const T={
+"Slow computer":["IT support","Check Task Manager for heavy apps","Look at startup programs and free disk space","Run updates and a malware scan","Upgrade RAM or SSD if it’s still slow"],
+"No Wi-Fi":["IT support","Check other devices on the same network","Restart the router, then the device","Forget and rejoin the network","Test with a cable to rule out the adapter"],
+"Need a website":["Web design","Learn your goal and audience","Sketch the pages on paper","Build a mobile-first version","Publish and test on real phones"],
+"Need a logo":["Graphic design","Ask about your brand and who it’s for","Draw three rough directions","Refine the one you choose","Deliver every file format you’ll need"],
+"Repetitive task":["AI automation","Map the steps you repeat","Find which steps a tool can do","Build a small automation","Add a check so you can trust it"]};
+let n=1;
+Object.keys(T).forEach(k=>{
+  const b=document.createElement("button");b.className="chip";b.textContent=k;
+  b.onclick=()=>{
+    n++;$("#tk-id").textContent="Ticket #"+String(n).padStart(4,"0");
+    const [cat,...s]=T[k];
+    $("#tk-out").innerHTML=`<h3 style="margin:0 0 .3rem">${k}</h3><span class="tag">Routed to: ${cat}</span><ol>${s.map(x=>`<li>${x}</li>`).join("")}</ol>`;
+  };
+  $("#tk-btns").append(b);
+});
+
+/* skills */
+const S=[
+["IT support","Troubleshooting",5,"Finding the root cause, not just clearing the symptom."],
+["IT support","Windows and macOS",4,"Setup, updates, user profiles and common error fixes."],
+["IT support","Networking basics",3,"Wi-Fi, IP addresses, DNS and router checks."],
+["IT support","Accounts and email",4,"Password resets, permissions and mailbox issues."],
+["IT support","Hardware repair",3,"Diagnosing and swapping parts in laptops and desktops."],
+["IT support","Remote support",4,"Guiding people through fixes calmly, in plain language."],
+["IT support","Ticketing and documentation",4,"Clear ticket notes and how-to guides so fixes can be repeated."],
+["Web design","HTML, CSS, JavaScript",4,"Clean, responsive pages that load fast."],
+["Web design","GitHub and hosting",3,"Version control and publishing with GitHub Pages."],
+["Web design","Responsive layout",4,"Pages that work on phones, tablets and desktops."],
+["Graphic design","Logos and branding",3,"Simple marks that work at any size."],
+["Graphic design","Social and print graphics",3,"Posters, banners and post templates."],
+["AI automation","Python",3,"Scripts that clean data, rename files and automate daily tasks."],
+["AI automation","Workflow automation",3,"Connecting apps so repeat tasks run themselves."],
+["AI automation","Prompt design",4,"Writing clear instructions that give reliable results."],
+["AI automation","APIs and webhooks",2,"Connecting tools so they send data to each other."],
+["Learning","Cybersecurity",2,"Currently learning: threats, safe setup and how to protect users."]];
+let sf="All";
+function drawSkills(){
+  $("#sk-g").innerHTML="";
+  S.filter(s=>sf==="All"||s[0]===sf).forEach(s=>{
+    const b=document.createElement("button");b.className="card skill";b.setAttribute("aria-expanded","false");
+    b.innerHTML=`<span class="tag">${s[0]}</span><h3 style="margin:.5rem 0 0">${s[1]}</h3><div class="lvl" aria-label="Level ${s[2]} of 5">${[1,2,3,4,5].map(i=>`<i class="${i<=s[2]?"f":""}"></i>`).join("")}</div><p class="more">${s[3]}</p>`;
+    b.onclick=()=>b.setAttribute("aria-expanded",b.getAttribute("aria-expanded")==="false");
+    $("#sk-g").append(b);
+  });
+}
+["All","IT support","Web design","Graphic design","AI automation","Learning"].forEach(l=>{
+  const b=document.createElement("button");b.className="chip";b.textContent=l;
+  b.onclick=()=>{sf=l;drawSkills();$("#sk-f").querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b))};
+  b.setAttribute("aria-pressed",l===sf);$("#sk-f").append(b);
+});
+drawSkills();
+
+/* projects */
+const P=[
+["Web design","This portfolio","A single-page site hosted on GitHub Pages, built from scratch.","https://mishy-techie.github.io/PersonalPortfolio/"],
+["IT support","IT support knowledge base","Short how-to articles for the most common support requests.","https://github.com/mishy-techie/ItSupportKnowledgeBase"],
+["AI automation","Automation scripts","Python scripts that take care of repetitive everyday tasks.","https://github.com/mishy-techie/AutomationScripts"]];
+P.forEach(p=>{
+  const d=document.createElement("div");d.className="card";
+  d.innerHTML=`<span class="tag">${p[0]}</span><h3 style="margin:.5rem 0">${p[1]}</h3><p style="color:var(--muted)">${p[2]}</p><a class="btn ghost" href="${p[3]}" target="_blank" rel="noopener">View project</a>`;
+  $("#pr-g").append(d);
+});
+
+/* games */
+const G=[
+["Tic-tac-toe","The classic three-in-a-row game.","https://mishy-techie.github.io/tic-tac-toe/"],
+["Rock paper scissors","Pick your move and beat the computer.","https://mishy-techie.github.io/rock-paper-scissors/"],
+["Treasure number","A number guessing game.","https://mishy-techie.github.io/treasure-number/"]];
+G.forEach(g=>{
+  const d=document.createElement("div");d.className="card";
+  d.innerHTML=`<h3>${g[0]}</h3><p style="color:var(--muted)">${g[1]}</p><button class="btn">Play here</button> <a class="btn ghost" href="${g[2]}" target="_blank" rel="noopener">Open in new tab</a><div class="frame"></div>`;
+  const btn=d.querySelector("button"),box=d.querySelector(".frame");
+  btn.onclick=()=>{
+    if(box.firstChild){box.innerHTML="";btn.textContent="Play here";return}
+    box.innerHTML=`<iframe src="${g[2]}" title="${g[0]}" loading="lazy"></iframe>`;btn.textContent="Close game";
+  };
+  $("#gm-g").append(d);
+});
+
+/* contact: sends through FormSubmit, which forwards the message to EMAIL */
+$("#c-mail").textContent=EMAIL;$("#c-mail").href="mailto:"+EMAIL;
+$("#cf").onsubmit=async e=>{
+  e.preventDefault();
+  const st=$("#c-st"),btn=$("#c-s"),f=e.target;
+  btn.disabled=true;st.style.color="var(--muted)";st.textContent="Sending…";
+  const d=Object.fromEntries(new FormData(f));
+  d._subject="Portfolio message from "+(d.name||"a visitor");
+  d._replyto=d.email;d._template="table";
+  try{
+    const r=await fetch("https://formsubmit.co/ajax/"+EMAIL,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(d)});
+    const j=await r.json();
+    if(!r.ok||j.success==="false"||j.success===false)throw new Error(j.message||"failed");
+    f.reset();st.style.color="var(--ok)";st.textContent="Message sent. Thank you, I’ll reply soon.";
+  }catch(err){
+    st.style.color="#D64545";st.textContent="Message not sent. Check your connection, or email me directly using the link below.";
+  }
+  btn.disabled=false;
+};
+route();
+</script>
+</body>
+</html>
