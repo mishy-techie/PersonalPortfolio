@@ -1,5 +1,3 @@
-fix mobile menu
+# Portfolio 
 
-add personal photo and braz logo
-
-add projects
+Simple personal portfolio to describe me.
