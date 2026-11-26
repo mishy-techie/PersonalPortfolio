@@ -90,17 +90,13 @@ P.forEach(p=>{
 
 /* games */
 const G=[
-["Tic-tac-toe","The classic three-in-a-row game.","https://mishy-techie.github.io/tic-tac-toe/"],
+["Mirage","A memory game where the board moves. Match the pairs before the cards swap places.","https://mishy-techie.github.io/Mirage/"],
+["Treasure number","A number guessing game.","https://mishy-techie.github.io/treasure-number/"],
 ["Rock paper scissors","Pick your move and beat the computer.","https://mishy-techie.github.io/rock-paper-scissors/"],
-["Treasure number","A number guessing game.","https://mishy-techie.github.io/treasure-number/"]];
+["Tic-tac-toe","The classic three-in-a-row game.","https://mishy-techie.github.io/tic-tac-toe/"]];
 G.forEach(g=>{
   const d=document.createElement("div");d.className="card";
-  d.innerHTML=`<h3>${g[0]}</h3><p style="color:var(--muted)">${g[1]}</p><button class="btn">Play here</button> <a class="btn ghost" href="${g[2]}" target="_blank" rel="noopener">Open in new tab</a><div class="frame"></div>`;
-  const btn=d.querySelector("button"),box=d.querySelector(".frame");
-  btn.onclick=()=>{
-    if(box.firstChild){box.innerHTML="";btn.textContent="Play here";return}
-    box.innerHTML=`<iframe src="${g[2]}" title="${g[0]}" loading="lazy"></iframe>`;btn.textContent="Close game";
-  };
+  d.innerHTML=`<h3>${g[0]}</h3><p style="color:var(--muted)">${g[1]}</p><a class="btn" href="${g[2]}" target="_blank" rel="noopener">Play in new tab</a>`;
   $("#gm-g").append(d);
 });
 
